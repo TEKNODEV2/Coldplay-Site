@@ -14,7 +14,7 @@
   margin: 0;
   padding: 0;
   /* --slide-height: 19rem; */
-  --slide-height: 50rem;/* MODIFICATO */
+  --slide-height: fit-content;/* MODIFICATO */
   --slide-spacing: 1rem;
   --slide-size: 80%;
 }
