@@ -134,7 +134,7 @@ export default function Home() {
           </div>
         </Vortex>
       </div>
-      <EmblaCarousel slides={SLIDES} options={OPTIONS} />
+      {/* <EmblaCarousel slides={SLIDES} options={OPTIONS} /> */}
       <InfiniteMovingCards
         items={testimonials}
         direction="right"
