@@ -10,6 +10,7 @@ import "@/components/embla/embla.css";
 import { Vortex } from "@/components/ui/vortex";
 import AnimatedCharacters from "@/components/ui/animated-text";
 import { useEffect, useState } from "react";
+import { FlipWords } from "@/components/ui/flip-words";
 
 export default function Home() {
   const [replay, setReplay] = useState(true);
@@ -17,21 +18,21 @@ export default function Home() {
   const [activequote, setActivequote] = useState([
     {
       type: "heading1",
-      text: '"Just because I\'m losing',
+      text: "\"Just\u00A0because\u00A0I'm\u00A0losing",
     },
     {
       type: "heading2",
-      text: 'doesn\'t mean I\'m lost"',
+      text: "doesn't mean I'm lost\"",
     },
   ]);
   var defaultquote = [
     {
       type: "heading1",
-      text: '"In the end, it\'s all about',
+      text: "\"In the end, it's all about",
     },
     {
       type: "heading2",
-      text: 'The love you\'re sending out"',
+      text: "The love you're sending out\"",
     },
   ];
   const quote1 = [
@@ -93,6 +94,17 @@ export default function Home() {
     }, 900);
   };
 
+  /* const line1 = [
+    "\"Just\u00A0because\u00A0I'm\u00A0losing",
+    "\"Look\u00A0at\u00A0the\u00A0stars",
+    "\"I\u00A0have\u00A0no\u00A0doubt",
+  ];
+  const line2 = [
+    "doesn't\u00A0mean\u00A0I'm\u00A0lost\"",
+    'look\u00A0how\u00A0they\u00A0shine\u00A0for\u00A0you"',
+    'one\u00A0day\u00A0the\u00A0sun\u00A0will\u00A0come\u00A0out"',
+  ]; */
+
   const OPTIONS: EmblaOptionsType = {
     dragFree: false,
     loop: true,
@@ -110,7 +122,7 @@ export default function Home() {
           <h2 className="dark:text-white text-black text-6xl md:text-9xl font-bold text-center">
             Coldplay
           </h2>
-          <div className="dark:text-white text-black text-sm md:text-3xl max-w-xl mt-6 text-center">
+          <div className="dark:text-white text-black mt-6 mx-auto text-3xl md:text-4xl font-bold text-center">
             <motion.div
               className="App"
               initial="hidden"
@@ -123,6 +135,9 @@ export default function Home() {
                 })}
               </div>
             </motion.div>
+            {/* <FlipWords words={line1} />
+            <br />
+            <FlipWords words={line2} /> */}
           </div>
           <div className="flex flex-col sm:flex-row items-center gap-4 mt-6">
             <button className="px-4 py-2 bg-blue-600 hover:bg-blue-700 transition duration-200 rounded-lg text-white shadow-[0px_2px_0px_0px_#FFFFFF40_inset]">
@@ -137,7 +152,7 @@ export default function Home() {
       {/* <EmblaCarousel slides={SLIDES} options={OPTIONS} /> */}
       <InfiniteMovingCards
         items={testimonials}
-        direction="right"
+        direction="left"
         speed="slow"
         className="max-w-full"
       />
@@ -161,32 +176,207 @@ const slides = [
 
 const testimonials = [
   {
-    quote:
-      "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair.",
-    name: "Charles Dickens",
-    title: "A Tale of Two Cities",
+    date: "Dom 26 mag 2024",
+    time: "10:30 AM",
+    place: "Luton - Stockwood Park",
+    image: "./coldplay.png",
   },
   {
-    quote:
-      "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take Arms against a Sea of troubles, And by opposing end them: to die, to sleep.",
-    name: "William Shakespeare",
-    title: "Hamlet",
+    date: "Sab 8 giu 2024",
+    time: "6 PM",
+    place: "Marousi - Athens Olympic Stadium",
+    image: "./coldplay.png",
   },
   {
-    quote: "All that we see or seem is but a dream within a dream.",
-    name: "Edgar Allan Poe",
-    title: "A Dream Within a Dream",
+    date: "Sab 22 giu 2024",
+    time: "6:30 PM",
+    place: "Decines Charpieu, 69 - GROUPAMA STADIUM",
+    image: "./coldplay.png",
   },
   {
-    quote:
-      "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
-    name: "Jane Austen",
-    title: "Pride and Prejudice",
+    date: "Dom 23 giu 2024",
+    time: "6:30 PM",
+    place: "Decines Charpieu, 69 - GROUPAMA STADIUM",
+    image: "./coldplay.png",
   },
   {
-    quote:
-      "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
-    name: "Herman Melville",
-    title: "Moby-Dick",
+    date: "Mar 25 giu 2024",
+    time: "6:30 PM",
+    place: "Decines Charpieu, 69 - GROUPAMA STADIUM",
+    image: "./coldplay.png",
+  },
+  {
+    date: "Ven 12 lug 2024",
+    time: "5:00 PM",
+    place: "Roma - Stadio Olimpico di Roma",
+    image: "./coldplay.png",
+  },
+  {
+    date: "Sab 13 lug 2024",
+    time: "5:00 PM",
+    place: "Roma - Stadio Olimpico di Roma",
+    image: "./coldplay.png",
+  },
+  {
+    date: "Lun 15 lug 2024",
+    time: "5:00 PM",
+    place: "Roma - Stadio Olimpico di Roma",
+    image: "./coldplay.png",
+  },
+  {
+    date: "Mar 16 lug 2024",
+    time: "5:00 PM",
+    place: "Roma - Stadio Olimpico di Roma",
+    image: "./coldplay.png",
+  },
+  {
+    date: "Sab 20 lug 2024",
+    time: "6:45 PM",
+    place: "Düsseldorf - MERKUR SPIEL-ARENA",
+    image: "./coldplay.png",
+  },
+  {
+    date: "Dom 21 lug 2024",
+    time: "6:45 PM",
+    place: "Düsseldorf - MERKUR SPIEL-ARENA",
+    image: "./coldplay.png",
+  },
+  {
+    date: "Mar 23 lug 2024",
+    time: "6:45 PM",
+    place: "Düsseldorf - MERKUR SPIEL-ARENA",
+    image: "./coldplay.png",
+  },
+  {
+    date: "Gio 15 ago 2024",
+    time: "6:30 PM",
+    place: "München - Olympiastadion",
+    image: "./coldplay.png",
+  },
+  {
+    date: "Sab 17 ago 2024",
+    time: "6:30 PM",
+    place: "München - Olympiastadion",
+    image: "./coldplay.png",
+  },
+  {
+    date: "Dom 18 ago 2024",
+    time: "6:30 PM",
+    place: "München - Olympiastadion",
+    image: "./coldplay.png",
+  },
+  {
+    date: "Mer 21 ago 2024",
+    time: "5:00 PM",
+    place: "Wien - Ernst-Happel-Stadion",
+    image: "./coldplay.png",
+  },
+  {
+    date: "Gio 22 ago 2024",
+    time: "5:00 PM",
+    place: "Wien - Ernst-Happel-Stadion",
+    image: "./coldplay.png",
+  },
+  {
+    date: "Sab 24 ago 2024",
+    time: "5:00 PM",
+    place: "Wien - Ernst-Happel-Stadion",
+    image: "./coldplay.png",
+  },
+  {
+    date: "Dom 25 ago 2024",
+    time: "5:00 PM",
+    place: "Wien - Ernst-Happel-Stadion",
+    image: "./coldplay.png",
+  },
+  {
+    date: "Gio 29 ago 2024",
+    time: "5:00 PM",
+    place: "Dublin - Croke Park",
+    image: "./coldplay.png",
+  },
+  {
+    date: "Ven 30 ago 2024",
+    time: "5:00 PM",
+    place: "Dublin - Croke Park",
+    image: "./coldplay.png",
+  },
+  {
+    date: "Dom 1 set 2024",
+    time: "5:00 PM",
+    place: "Dublin - Croke Park",
+    image: "./coldplay.png",
+  },
+  {
+    date: "Lun 2 set 2024",
+    time: "5:00 PM",
+    place: "Dublin - Croke Park",
+    image: "./coldplay.png",
+  },
+  {
+    date: "Mer 30 ott 2024",
+    time: "5:00 PM",
+    place: "Docklands, VIC - Marvel Stadium",
+    image: "./coldplay.png",
+  },
+  {
+    date: "Gio 31 ott 2024",
+    time: "5:00 PM",
+    place: "Docklands, VIC - Marvel Stadium",
+    image: "./coldplay.png",
+  },
+  {
+    date: "Sab 2 nov 2024",
+    time: "5:00 PM",
+    place: "Docklands, VIC - Marvel Stadium",
+    image: "./coldplay.png",
+  },
+  {
+    date: "Dom 3 nov 2024",
+    time: "5:00 PM",
+    place: "Docklands, VIC - Marvel Stadium",
+    image: "./coldplay.png",
+  },
+  {
+    date: "Mer 6 nov 2024",
+    time: "7:00 PM",
+    place: "Sydney Olympic Park, NSW - Accor Stadium",
+    image: "./coldplay.png",
+  },
+  {
+    date: "Gio 7 nov 2024",
+    time: "7:00 PM",
+    place: "Sydney Olympic Park, NSW - Accor Stadium",
+    image: "./coldplay.png",
+  },
+  {
+    date: "Sab 9 nov 2024",
+    time: "7:00 PM",
+    place: "Sydney Olympic Park, NSW - Accor Stadium",
+    image: "./coldplay.png",
+  },
+  {
+    date: "Dom 10 nov 2024",
+    time: "7:00 PM",
+    place: "Sydney Olympic Park, NSW - Accor Stadium",
+    image: "./coldplay.png",
+  },
+  {
+    date: "Mer 13 nov 2024",
+    time: "5:00 PM",
+    place: "Auckland, NZ - Eden Park",
+    image: "./coldplay.png",
+  },
+  {
+    date: "Ven 15 nov 2024",
+    time: "5:00 PM",
+    place: "Auckland, NZ - Eden Park",
+    image: "./coldplay.png",
+  },
+  {
+    date: "Sab 16 nov 2024",
+    time: "5:00 PM",
+    place: "Auckland, NZ - Eden Park",
+    image: "./coldplay.png",
   },
 ];

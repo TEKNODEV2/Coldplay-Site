@@ -11,9 +11,10 @@ export const InfiniteMovingCards = ({
   className,
 }: {
   items: {
-    quote: string;
-    name: string;
-    title: string;
+    date: string;
+    time: string;
+    place: string;
+    image: string;
   }[];
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
@@ -65,7 +66,7 @@ export const InfiniteMovingCards = ({
       } else if (speed === "normal") {
         containerRef.current.style.setProperty("--animation-duration", "40s");
       } else {
-        containerRef.current.style.setProperty("--animation-duration", "80s");
+        containerRef.current.style.setProperty("--animation-duration", "240s"); /* 80s */
       }
     }
   };
@@ -73,7 +74,7 @@ export const InfiniteMovingCards = ({
     <div
       ref={containerRef}
       className={cn(
-        "scroller relative z-20  max-w-7xl overflow-hidden  [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)] w-screen",
+        "scroller relative z-20  max-w-7xl overflow-hidden  [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
         className
       )}
     >
@@ -87,28 +88,27 @@ export const InfiniteMovingCards = ({
       >
         {items.map((item, idx) => (
           <li
-            className="w-[350px] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-700 px-8 py-6 md:w-[450px]"
+            className="w-[300px] max-w-full relative rounded-2xl border flex-shrink-0 border-slate-700 px-4 py-4 md:w-[400px]"
             style={{
               background:
                 "linear-gradient(180deg, var(--slate-800), var(--slate-900)",
             }}
-            key={item.name}
+            key={item.date}
           >
-            <blockquote>
-              <div
-                aria-hidden="true"
-                className="user-select-none -z-1 pointer-events-none absolute -left-0.5 -top-0.5 h-auto w-[calc(100%_+_4px)]"
-              ></div>
-              <span className=" relative z-20 text-sm leading-[1.6] text-gray-100 font-normal">
-                {item.quote}
-              </span>
-              <div className="relative z-20 mt-6 flex flex-row items-center">
-                <span className="flex flex-col gap-1">
-                  <span className=" text-sm leading-[1.6] text-gray-400 font-normal">
-                    {item.name}
+            <blockquote className="h-full">
+              <div className="relative z-20 flex flex-row items-center h-full">
+                <span className="flex flex-col gap-1 h-full">
+                  <span className="text-lg leading-[1.6] text-secondary font-bold">
+                    {item.place}
                   </span>
-                  <span className=" text-sm leading-[1.6] text-gray-400 font-normal">
-                    {item.title}
+                  <span className="text-lg leading-[1.6] text-gray-400 font-bold">
+                    {item.date}
+                  </span>
+                  <span className="text-lg leading-[1.6] text-gray-400 font-bold">
+                    {item.time}
+                  </span>
+                  <span className="leading-[1.6] h-full flex items-end">
+                    <img src={item.image} className="w-full object-cover rounded-xl"/>
                   </span>
                 </span>
               </div>

@@ -28,7 +28,7 @@ const AnimatedCharacters: React.FC<{ text: string; type: keyof typeof tagMap }> 
     },
     visible: {
       y: 0,
-      color: "#FF0088",
+      color: "#3172eb",
       transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.75 }
     }
   };

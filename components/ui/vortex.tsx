@@ -20,16 +20,16 @@ interface VortexProps {
 export const Vortex = (props: VortexProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef(null);
-  const particleCount = props.particleCount || 700;
+  const particleCount = props.particleCount || 2000; // Ridotto il numero di particelle
   const particlePropCount = 9;
   const particlePropsLength = particleCount * particlePropCount;
   const rangeY = props.rangeY || 400;
   const baseTTL = 50;
   const rangeTTL = 150;
   const baseSpeed = props.baseSpeed || 0.0;
-  const rangeSpeed = props.rangeSpeed || 1.5;
+  const rangeSpeed = props.rangeSpeed || 1.5; // Ridotto la variazione di velocità
   const baseRadius = props.baseRadius || 1;
-  const rangeRadius = props.rangeRadius || 2;
+  const rangeRadius = props.rangeRadius || 2; // Ridotto la variazione di raggio
   const baseHue = props.baseHue || 220;
   const rangeHue = 100;
   const noiseSteps = 3;
@@ -41,6 +41,10 @@ export const Vortex = (props: VortexProps) => {
   const noise3D = createNoise3D();
   let particleProps = new Float32Array(particlePropsLength);
   let center: [number, number] = [0, 0];
+
+  const frameRate = 90; // Limita il frame rate a 30 FPS
+  const frameDelay = 1000 / frameRate;
+  let lastFrameTime = 0;
 
   const HALF_PI: number = 0.5 * Math.PI;
   const TAU: number = 2 * Math.PI;
@@ -63,7 +67,7 @@ export const Vortex = (props: VortexProps) => {
       if (ctx) {
         resize(canvas, ctx);
         initParticles();
-        draw(canvas, ctx);
+        draw(canvas, ctx, 0);
       }
     }
   };
@@ -97,19 +101,24 @@ export const Vortex = (props: VortexProps) => {
     particleProps.set([x, y, vx, vy, life, ttl, speed, radius, hue], i);
   };
 
-  const draw = (canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) => {
+  const draw = (canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, time: number) => {
+    if (time - lastFrameTime < frameDelay) {
+      requestAnimationFrame((time) => draw(canvas, ctx, time));
+      return;
+    }
+    lastFrameTime = time;
     tick++;
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
     ctx.fillStyle = backgroundColor;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     drawParticles(ctx);
-    renderGlow(canvas, ctx);
-    renderToScreen(canvas, ctx);
+    // Commentato per ridurre il carico
+    // renderGlow(canvas, ctx);
+    // renderToScreen(canvas, ctx);
 
-    window.requestAnimationFrame(() => draw(canvas, ctx));
+    requestAnimationFrame((time) => draw(canvas, ctx, time));
   };
 
   const drawParticles = (ctx: CanvasRenderingContext2D) => {
