@@ -11,6 +11,7 @@ import { Vortex } from "@/components/ui/vortex";
 import AnimatedCharacters from "@/components/ui/animated-text";
 import { useEffect, useState } from "react";
 import { FlipWords } from "@/components/ui/flip-words";
+import { LampContainer } from "@/components/ui/lamp";
 
 export default function Home() {
   const [replay, setReplay] = useState(true);
@@ -110,7 +111,6 @@ export default function Home() {
     loop: true,
     containScroll: false,
   };
-  // const SLIDE_COUNT = {slides}
   const SLIDES = slides;
   return (
     <>
@@ -148,6 +148,130 @@ export default function Home() {
             </button>
           </div>
         </Vortex>
+      </div>
+      <div className="grid grid-cols-2">
+        <div>
+          <LampContainer>
+            <motion.h1
+              initial={{ opacity: 0.5, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: 0.3,
+                duration: 0.8,
+                ease: "easeInOut",
+              }}
+              className=""
+            >
+              <div className="card card-side bg-base-100 shadow-xl translate-y-[100px]">
+                <figure>
+                  <img
+                    src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
+                    alt="Movie"
+                  />
+                </figure>
+                <div className="card-body">
+                  <h2 className="card-title">New movie is released!</h2>
+                  <p>Click the button to watch on Jetflix app.</p>
+                  <div className="card-actions justify-end">
+                    <button className="btn btn-primary">Watch</button>
+                  </div>
+                </div>
+              </div>
+            </motion.h1>
+          </LampContainer>
+        </div>
+        <div>
+          <LampContainer>
+            <motion.h1
+              initial={{ opacity: 0.5, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: 0.3,
+                duration: 0.8,
+                ease: "easeInOut",
+              }}
+              className=""
+            >
+              <div className="card card-side bg-base-100 shadow-xl translate-y-[100px]">
+                <figure>
+                  <img
+                    src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
+                    alt="Movie"
+                  />
+                </figure>
+                <div className="card-body">
+                  <h2 className="card-title">New movie is released!</h2>
+                  <p>Click the button to watch on Jetflix app.</p>
+                  <div className="card-actions justify-end">
+                    <button className="btn btn-primary">Watch</button>
+                  </div>
+                </div>
+              </div>
+            </motion.h1>
+          </LampContainer>
+        </div>
+      </div>
+      <div className="grid grid-cols-2">
+        <div>
+          <LampContainer>
+            <motion.h1
+              initial={{ opacity: 0.5, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: 0.3,
+                duration: 0.8,
+                ease: "easeInOut",
+              }}
+              className=""
+            >
+              <div className="card card-side bg-base-100 shadow-xl translate-y-[100px]">
+                <figure>
+                  <img
+                    src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
+                    alt="Movie"
+                  />
+                </figure>
+                <div className="card-body">
+                  <h2 className="card-title">New movie is released!</h2>
+                  <p>Click the button to watch on Jetflix app.</p>
+                  <div className="card-actions justify-end">
+                    <button className="btn btn-primary">Watch</button>
+                  </div>
+                </div>
+              </div>
+            </motion.h1>
+          </LampContainer>
+        </div>
+        <div>
+          <LampContainer>
+            <motion.h1
+              initial={{ opacity: 0.5, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: 0.3,
+                duration: 0.8,
+                ease: "easeInOut",
+              }}
+              className=""
+            >
+              <div className="card card-side bg-base-100 shadow-xl translate-y-[100px]">
+                <figure>
+                  <img
+                    src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
+                    alt="Movie"
+                  />
+                </figure>
+                <div className="card-body">
+                  <h2 className="card-title">New movie is released!</h2>
+                  <p>Click the button to watch on Jetflix app.</p>
+                  <div className="card-actions justify-end">
+                    <button className="btn btn-primary">Watch</button>
+                  </div>
+                </div>
+              </div>
+            </motion.h1>
+          </LampContainer>
+        </div>
       </div>
       {/* <EmblaCarousel slides={SLIDES} options={OPTIONS} /> */}
       <InfiniteMovingCards
