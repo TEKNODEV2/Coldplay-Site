@@ -153,7 +153,7 @@ export default function Home() {
         <div>
           <LampContainer>
             <motion.h1
-              initial={{ opacity: 0.5, y: 100 }}
+              initial={{ opacity: 0.5, y: 0 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{
                 delay: 0.3,
@@ -183,7 +183,7 @@ export default function Home() {
         <div>
           <LampContainer>
             <motion.h1
-              initial={{ opacity: 0.5, y: 100 }}
+              initial={{ opacity: 0.5, y: 0 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{
                 delay: 0.3,
@@ -215,7 +215,7 @@ export default function Home() {
         <div>
           <LampContainer>
             <motion.h1
-              initial={{ opacity: 0.5, y: 100 }}
+              initial={{ opacity: 0.5, y: 0 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{
                 delay: 0.3,
@@ -245,7 +245,7 @@ export default function Home() {
         <div>
           <LampContainer>
             <motion.h1
-              initial={{ opacity: 0.5, y: 100 }}
+              initial={{ opacity: 0.5, y: 0 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{
                 delay: 0.3,
