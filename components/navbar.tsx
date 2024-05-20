@@ -153,7 +153,7 @@ export const Navbar = () => {
                       title="Tutti i prodotti"
                       description="vedi merch, eventi, albums"
                       endContent={icons.arrowrightdouble}
-                      href="/shop"
+                      href="/shop#all"
                     ></DropdownItem>
                     <DropdownItem
                       startContent={icons.tshirt}
