@@ -95,23 +95,11 @@ export default function Home() {
     }, 900);
   };
 
-  /* const line1 = [
-    "\"Just\u00A0because\u00A0I'm\u00A0losing",
-    "\"Look\u00A0at\u00A0the\u00A0stars",
-    "\"I\u00A0have\u00A0no\u00A0doubt",
-  ];
-  const line2 = [
-    "doesn't\u00A0mean\u00A0I'm\u00A0lost\"",
-    'look\u00A0how\u00A0they\u00A0shine\u00A0for\u00A0you"',
-    'one\u00A0day\u00A0the\u00A0sun\u00A0will\u00A0come\u00A0out"',
-  ]; */
-
   const OPTIONS: EmblaOptionsType = {
     dragFree: false,
     loop: true,
     containScroll: false,
   };
-  const SLIDES = slides;
   return (
     <>
       <div className="w-screen mx-auto rounded-md  h-screen overflow-hidden">
@@ -149,154 +137,19 @@ export default function Home() {
           </div>
         </Vortex>
       </div>
-      <div className="grid grid-cols-2">
-        <div>
-          <LampContainer>
-            <motion.h1
-              initial={{ opacity: 0.5, y: 0 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                delay: 0.3,
-                duration: 0.8,
-                ease: "easeInOut",
-              }}
-              className=""
-            >
-              <div className="card card-side bg-base-100 shadow-xl translate-y-[100px]">
-                <figure>
-                  <img
-                    src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
-                    alt="Movie"
-                  />
-                </figure>
-                <div className="card-body">
-                  <h2 className="card-title">New movie is released!</h2>
-                  <p>Click the button to watch on Jetflix app.</p>
-                  <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Watch</button>
-                  </div>
-                </div>
-              </div>
-            </motion.h1>
-          </LampContainer>
-        </div>
-        <div>
-          <LampContainer>
-            <motion.h1
-              initial={{ opacity: 0.5, y: 0 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                delay: 0.3,
-                duration: 0.8,
-                ease: "easeInOut",
-              }}
-              className=""
-            >
-              <div className="card card-side bg-base-100 shadow-xl translate-y-[100px]">
-                <figure>
-                  <img
-                    src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
-                    alt="Movie"
-                  />
-                </figure>
-                <div className="card-body">
-                  <h2 className="card-title">New movie is released!</h2>
-                  <p>Click the button to watch on Jetflix app.</p>
-                  <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Watch</button>
-                  </div>
-                </div>
-              </div>
-            </motion.h1>
-          </LampContainer>
-        </div>
-      </div>
-      <div className="grid grid-cols-2">
-        <div>
-          <LampContainer>
-            <motion.h1
-              initial={{ opacity: 0.5, y: 0 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                delay: 0.3,
-                duration: 0.8,
-                ease: "easeInOut",
-              }}
-              className=""
-            >
-              <div className="card card-side bg-base-100 shadow-xl translate-y-[100px]">
-                <figure>
-                  <img
-                    src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
-                    alt="Movie"
-                  />
-                </figure>
-                <div className="card-body">
-                  <h2 className="card-title">New movie is released!</h2>
-                  <p>Click the button to watch on Jetflix app.</p>
-                  <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Watch</button>
-                  </div>
-                </div>
-              </div>
-            </motion.h1>
-          </LampContainer>
-        </div>
-        <div></div>
-      </div>
-      <EmblaCarousel slides={SLIDES} options={OPTIONS}>
-        <LampContainer>
-          <motion.h1
-            initial={{ opacity: 0.5, y: 0 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              delay: 0.3,
-              duration: 0.8,
-              ease: "easeInOut",
-            }}
-            className=""
-          >
-            <div className="card card-side bg-base-100 shadow-xl translate-y-[100px]">
-              <figure>
-                <img
-                  src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
-                  alt="Movie"
-                />
-              </figure>
-              <div className="card-body">
-                <h2 className="card-title">New movie is released!</h2>
-                <p>Click the button to watch on Jetflix app.</p>
-                <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Watch</button>
-                </div>
-              </div>
-            </div>
-          </motion.h1>
-        </LampContainer>
-      </EmblaCarousel>
       <InfiniteMovingCards
         items={testimonials}
         direction="left"
         speed="slow"
         className="max-w-full"
       />
+      {/* <EmblaCarousel
+        slides={5}
+        options={{ dragFree: false, loop: true, containScroll: false }}
+      ></EmblaCarousel> */}
     </>
   );
 }
-const slides = [
-  {
-    src: "./coldplay.png",
-    href: "/",
-  },
-  {
-    src: "./musicofthespheres.jpeg",
-    href: "/about",
-  },
-  {
-    src: "./musicofthespheres.jpeg",
-    href: "/about",
-  },
-];
 
 const testimonials = [
   {

@@ -14,6 +14,12 @@ import { Link } from "@nextui-org/link";
 import { Input } from "@nextui-org/input";
 
 import { link as linkStyles } from "@nextui-org/theme";
+import {
+  DropdownItem,
+  DropdownTrigger,
+  Dropdown,
+  DropdownMenu,
+} from "@nextui-org/react";
 
 import { siteConfig } from "@/config/site";
 import NextLink from "next/link";
@@ -44,7 +50,11 @@ import { useReducer, useState } from "react";
 import { usePathname } from "next/navigation";
 
 //Icons
+import * as herosolid from '@heroicons/react/24/solid'
+import * as herooutline from '@heroicons/react/24/outline'
 import { FaUser } from "react-icons/fa";
+import { icons } from "lucide-react";
+import { ArrowRightDouble, Square2StackIcon, TShirt, Album, Ticket } from "./icons/icons";
 
 export const Navbar = () => {
   const pathname = usePathname();
@@ -74,6 +84,14 @@ export const Navbar = () => {
     />
   );
 
+  const icons = {
+    arrowrightdouble: <ArrowRightDouble fill="currentColor" size={40} height={undefined} width={undefined} />,
+    square2StackIcon: <Square2StackIcon fill="#3172eb" size={40} height={undefined} width={undefined} />,
+    tshirt: <TShirt fill="#3172eb" size={40} height={undefined} width={undefined} />,
+    album: <Album fill="#3172eb" size={40} height={undefined} width={undefined} />,
+    ticket: <Ticket fill="#3172eb" size={40} height={undefined} width={undefined} />,
+  };
+
   return (
     <NextUINavbar
       maxWidth="xl"
@@ -89,20 +107,79 @@ export const Navbar = () => {
           </NextLink>
         </NavbarBrand>
         <ul className="hidden lg:flex gap-4 justify-start ml-2">
-          {siteConfig.navItems.map((item) => (
-            <NavbarItem key={item.href}>
-              <NextLink
-                className={
-                  pathname == item.href
-                    ? "font-bold text-xl pb-1 relative after:absolute after:bg-gray-200 after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-left after:scale-x-100 hover:after:origin-bottom-right hover:after:scale-x-0 after:transition-transform after:ease-in-out after:duration-300"
-                    : "font-bold text-xl pb-1 relative after:absolute after:bg-gray-200 after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300"
-                }
-                color="foreground"
-                href={item.href}
-              >
-                {item.label}
-              </NextLink>
-            </NavbarItem>
+          {siteConfig.navItems.map((item, index) => (
+            <>
+              {index != 2 && (
+                <NavbarItem key={item.href}>
+                  <NextLink
+                    className={
+                      pathname == item.href
+                        ? "font-bold text-xl pb-1 relative after:absolute after:bg-gray-200 after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-left after:scale-x-100 hover:after:origin-bottom-right hover:after:scale-x-0 after:transition-transform after:ease-in-out after:duration-300"
+                        : "font-bold text-xl pb-1 relative after:absolute after:bg-gray-200 after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300"
+                    }
+                    color="foreground"
+                    href={item.href}
+                  >
+                    {item.label}
+                  </NextLink>
+                </NavbarItem>
+              )}
+              {index === 2 && (
+                <Dropdown>
+                  <NavbarItem>
+                    <DropdownTrigger>
+                      <NextLink
+                        className={
+                          pathname == item.href
+                            ? "font-bold text-xl pb-1 relative after:absolute after:bg-gray-200 after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-left after:scale-x-100 hover:after:origin-bottom-right hover:after:scale-x-0 after:transition-transform after:ease-in-out after:duration-300 focus:outline-none"
+                            : "font-bold text-xl pb-1 relative after:absolute after:bg-gray-200 after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300 focus:outline-none"
+                        }
+                        color="foreground"
+                        href="#"
+                      >
+                        {item.label}
+                      </NextLink>
+                    </DropdownTrigger>
+                  </NavbarItem>
+                  <DropdownMenu
+                    className="w-[340px]"
+                    itemClasses={{
+                      base: "gap-4",
+                      title: "font-bold text-lg"
+                    }}
+                  >
+                    <DropdownItem
+                      startContent={icons.square2StackIcon}
+                      title="Tutti i prodotti"
+                      description="vedi merch, eventi, albums"
+                      endContent={icons.arrowrightdouble}
+                      href="/shop"
+                    ></DropdownItem>
+                    <DropdownItem
+                      startContent={icons.tshirt}
+                      title="Merchandise"
+                      description="vedi magliette e altri articoli"
+                      endContent={icons.arrowrightdouble}
+                      href="/shop#merchandise"
+                    ></DropdownItem>
+                    <DropdownItem
+                      startContent={icons.album}
+                      title="Album"
+                      description="vedi gli album"
+                      endContent={icons.arrowrightdouble}
+                      href="/shop#album"
+                    ></DropdownItem>
+                    <DropdownItem
+                      startContent={icons.ticket}
+                      title="Tutti gli eventi"
+                      description="vedi biglietti acquistabili"
+                      endContent={icons.arrowrightdouble}
+                      href="/shop#ticket"
+                    ></DropdownItem>
+                  </DropdownMenu>
+                </Dropdown>
+              )}
+            </>
           ))}
         </ul>
       </NavbarContent>
