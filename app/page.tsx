@@ -242,38 +242,38 @@ export default function Home() {
             </motion.h1>
           </LampContainer>
         </div>
-        <div>
-          <LampContainer>
-            <motion.h1
-              initial={{ opacity: 0.5, y: 0 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                delay: 0.3,
-                duration: 0.8,
-                ease: "easeInOut",
-              }}
-              className=""
-            >
-              <div className="card card-side bg-base-100 shadow-xl translate-y-[100px]">
-                <figure>
-                  <img
-                    src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
-                    alt="Movie"
-                  />
-                </figure>
-                <div className="card-body">
-                  <h2 className="card-title">New movie is released!</h2>
-                  <p>Click the button to watch on Jetflix app.</p>
-                  <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Watch</button>
-                  </div>
+        <div></div>
+      </div>
+      <EmblaCarousel slides={SLIDES} options={OPTIONS}>
+        <LampContainer>
+          <motion.h1
+            initial={{ opacity: 0.5, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              delay: 0.3,
+              duration: 0.8,
+              ease: "easeInOut",
+            }}
+            className=""
+          >
+            <div className="card card-side bg-base-100 shadow-xl translate-y-[100px]">
+              <figure>
+                <img
+                  src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
+                  alt="Movie"
+                />
+              </figure>
+              <div className="card-body">
+                <h2 className="card-title">New movie is released!</h2>
+                <p>Click the button to watch on Jetflix app.</p>
+                <div className="card-actions justify-end">
+                  <button className="btn btn-primary">Watch</button>
                 </div>
               </div>
-            </motion.h1>
-          </LampContainer>
-        </div>
-      </div>
-      {/* <EmblaCarousel slides={SLIDES} options={OPTIONS} /> */}
+            </div>
+          </motion.h1>
+        </LampContainer>
+      </EmblaCarousel>
       <InfiniteMovingCards
         items={testimonials}
         direction="left"

@@ -18,10 +18,12 @@ const TWEEN_FACTOR_BASE = 0.2;
 type PropType = {
   slides: any;
   options?: EmblaOptionsType;
+  children?: React.ReactNode; // Added this line to support children
 };
 
 const EmblaCarousel: React.FC<PropType> = (props) => {
-  const { slides, options } = props;
+  const { slides, options, children } = props; // Destructure children from props
+
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
     Autoplay({ playOnInit: true, delay: 5000 }),
   ]);
@@ -110,18 +112,17 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
             <div className="embla__slide" key={index}>
               <div className="embla__parallax">
                 <div className="embla__parallax__layer">
-                  <a href={item.href}>
-                    <img
-                      className="embla__slide__img embla__parallax__img"
-                      src={item.src}
-                    />
-                  </a>
+                  {/* You can render children here if needed */}
+                  {children}
                 </div>
               </div>
             </div>
           ))}
         </div>
       </div>
+
+      {/* Render children passed to the component */}
+      {/* {children} */}
 
       <div className="embla__controls">
         <div className="embla__buttons">

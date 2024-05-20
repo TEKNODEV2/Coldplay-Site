@@ -22,7 +22,7 @@ export function LampDemo() {
   );
 }
 
-export const LampContainer = ({
+export const LampContainer = React.memo(({
   children,
   className,
 }: {
@@ -101,4 +101,4 @@ export const LampContainer = ({
       </div>
     </div>
   );
-};
+});
