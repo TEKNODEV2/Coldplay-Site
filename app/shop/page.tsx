@@ -6,6 +6,11 @@ import {
   Card,
   CardBody,
   CardHeader,
+  Dropdown,
+  Link,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownItem,
   Button,
 } from "@nextui-org/react";
 import Meteors from "@/components/ui/meteors";
@@ -81,9 +86,62 @@ export default function ShopPage() {
         <Tabs items={data.tabs} selectedKey={hash}>
           {(item) => (
             <Tab key={item.id} title={item.label} href={item.href}>
-              <Button isIconOnly >{icons.funnel}</Button>
               <Card>
-                <CardBody className="w-screen">{item.content}</CardBody>
+                <CardBody className="w-screen">
+                  {
+                    {
+                      "#all": (
+                        <div className=" w-full flex justify-center">
+                          <Dropdown backdrop="blur">
+                            <DropdownTrigger>
+                              <Button variant="bordered">Open Menu all</Button>
+                            </DropdownTrigger>
+                            <DropdownMenu
+                              variant="faded"
+                              aria-label="Static Actions"
+                            >
+                              <DropdownItem key="new">New file</DropdownItem>
+                              <DropdownItem key="copy">Copy link</DropdownItem>
+                              <DropdownItem key="edit">Edit file</DropdownItem>
+                              <DropdownItem
+                                key="delete"
+                                className="text-danger"
+                                color="danger"
+                              >
+                                Delete file
+                              </DropdownItem>
+                            </DropdownMenu>
+                          </Dropdown>
+                        </div>
+                      ),
+                      "#merchandise": (
+                        <div className=" w-full flex justify-center">
+                          <Dropdown backdrop="blur">
+                            <DropdownTrigger>
+                              <Button variant="bordered">Open Menu merchandise</Button>
+                            </DropdownTrigger>
+                            <DropdownMenu
+                              variant="faded"
+                              aria-label="Static Actions"
+                            >
+                              <DropdownItem key="new">New file</DropdownItem>
+                              <DropdownItem key="copy">Copy link</DropdownItem>
+                              <DropdownItem key="edit">Edit file</DropdownItem>
+                              <DropdownItem
+                                key="delete"
+                                className="text-danger"
+                                color="danger"
+                              >
+                                Delete file
+                              </DropdownItem>
+                            </DropdownMenu>
+                          </Dropdown>
+                        </div>
+                      ),
+                    }[item.id]
+                  }
+                  {item.content}
+                </CardBody>
               </Card>
             </Tab>
           )}

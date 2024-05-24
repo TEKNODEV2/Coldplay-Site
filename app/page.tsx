@@ -12,6 +12,7 @@ import AnimatedCharacters from "@/components/ui/animated-text";
 import { useEffect, useState } from "react";
 import { FlipWords } from "@/components/ui/flip-words";
 import { LampContainer } from "@/components/ui/lamp";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   const [replay, setReplay] = useState(true);
