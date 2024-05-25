@@ -60,6 +60,7 @@ import {
   TShirt,
   Album,
   Ticket,
+  MusicNote,
 } from "./icons/icons";
 /* import {
   Drawer,
@@ -126,6 +127,9 @@ export const Navbar = () => {
     ),
     ticket: (
       <Ticket fill="#3172eb" size={40} height={undefined} width={undefined} />
+    ),
+    musicNote: (
+      <MusicNote fill="#3172eb" size={40} height={undefined} width={undefined} />
     ),
   };
 
@@ -454,14 +458,17 @@ export const Navbar = () => {
         </Modal>
       </NextUINavbar>
       <Drawer.Root direction="right" shouldScaleBackground noBodyStyles>
-        <Drawer.Trigger asChild>
-          <button>Open Drawer</button>
+        <Drawer.Trigger asChild className="fixed bottom-5 right-5 z-50">
+          <Button radius="full" isIconOnly className="w-14 h-14"><MusicNote className="mr-1" fill="#3172eb" size={25} height={undefined} width={undefined} /></Button>
         </Drawer.Trigger>
         <Drawer.Portal>
           <Drawer.Overlay className="fixed inset-0 bg-black/40" />
           <Drawer.Content className="bg-white flex flex-col  h-full w-[400px] fixed bottom-0 right-0 z-50">
             <div className="p-4 bg-white flex-1 h-full rounded-full">
-              <div className="mx-auto w-1.5 h-12 flex-shrink-0 rounded-full bg-zinc-300 fixed top-[50%] left-[15px]" style={{transform: "translate(-50%, -50%)"}} />
+              <div
+                className="mx-auto w-1.5 h-12 flex-shrink-0 rounded-full bg-zinc-300 fixed top-[50%] left-[15px]"
+                style={{ transform: "translate(-50%, -50%)" }}
+              />
               <div className="max-w-md mx-auto ml-4">
                 <Drawer.Title className="font-medium mb-4">
                   Unstyled drawer for React.
