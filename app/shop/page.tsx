@@ -58,21 +58,37 @@ export default function ShopPage() {
   const [hash, setHash] = useState(
     typeof window !== "undefined" ? window.location.hash : ""
   );
+  const [selected, setSelected]: any = useState(
+    typeof window !== "undefined" ? window.location.hash : ""
+  );
 
+  /* if (typeof window !== "undefined" && location.hash != (null || undefined)) {
+    const handleHashChange = () => {
+      setSelected(window.location.hash);
+    };
+
+    window.addEventListener("hashchange", handleHashChange);
+
+    // Pulizia dell'event listener quando il componente viene smontato
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+    };
+  }else if(window.location.hash !== selected) {
+    console.log("ok");
+    location.hash = selected;
+  }; */
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const handleHashChange = () => {
-        setHash(window.location.hash);
-      };
-
-      window.addEventListener("hashchange", handleHashChange);
-
-      // Pulizia dell'event listener quando il componente viene smontato
-      return () => {
-        window.removeEventListener("hashchange", handleHashChange);
-      };
-    }
+    const handleHashChange = () => {
+      setSelected(window.location.hash);
+    };
+    window.addEventListener("hashchange", handleHashChange);
+    // Pulizia dell'event listener quando il componente viene smontato
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+    };
   }, []);
+
+  window.location.hash=selected;
 
   return (
     <>
@@ -83,9 +99,18 @@ export default function ShopPage() {
         </p>
       </div>
       <div className="flex w-full flex-col items-center">
-        <Tabs items={data.tabs} selectedKey={hash}>
+        <Tabs
+          items={data.tabs}
+          selectedKey={selected}
+          onSelectionChange={setSelected}
+        >
           {(item) => (
-            <Tab key={item.id} title={item.label} href={item.href}>
+            <Tab
+              key={item.id}
+              title={
+                item.label
+              } /* href={item.href} */ /*  onClick={() => {location.href = item.href}} */
+            >
               <Card>
                 <CardBody className="w-screen">
                   {
@@ -118,7 +143,9 @@ export default function ShopPage() {
                         <div className=" w-full flex justify-center">
                           <Dropdown backdrop="blur">
                             <DropdownTrigger>
-                              <Button variant="bordered">Open Menu merchandise</Button>
+                              <Button variant="bordered">
+                                Open Menu merchandise
+                              </Button>
                             </DropdownTrigger>
                             <DropdownMenu
                               variant="faded"
