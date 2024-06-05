@@ -153,39 +153,35 @@ export const Navbar = () => {
           </NavbarBrand>
           <ul className="hidden lg:flex gap-4 justify-start ml-2">
             {siteConfig.navItems.map((item, index) => (
-              <>
+              <NavbarItem key={index}>
                 {index != 2 && (
-                  <NavbarItem key={item.href}>
-                    <NextLink
-                      className={
-                        pathname == item.href
-                          ? "font-bold text-xl pb-1 relative after:absolute after:bg-gray-200 after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-left after:scale-x-100 hover:after:origin-bottom-right hover:after:scale-x-0 after:transition-transform after:ease-in-out after:duration-300"
-                          : "font-bold text-xl pb-1 relative after:absolute after:bg-gray-200 after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300"
-                      }
-                      color="foreground"
-                      href={item.href}
-                    >
-                      {item.label}
-                    </NextLink>
-                  </NavbarItem>
+                  <NextLink
+                    className={
+                      pathname == item.href
+                        ? "font-bold text-xl pb-1 relative after:absolute after:bg-gray-200 after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-left after:scale-x-100 hover:after:origin-bottom-right hover:after:scale-x-0 after:transition-transform after:ease-in-out after:duration-300"
+                        : "font-bold text-xl pb-1 relative after:absolute after:bg-gray-200 after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300"
+                    }
+                    color="foreground"
+                    href={item.href}
+                  >
+                    {item.label}
+                  </NextLink>
                 )}
                 {index === 2 && (
                   <Dropdown>
-                    <NavbarItem>
-                      <DropdownTrigger>
-                        <NextLink
-                          className={
-                            pathname == item.href
-                              ? "font-bold text-xl pb-1 relative after:absolute after:bg-gray-200 after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-left after:scale-x-100 hover:after:origin-bottom-right hover:after:scale-x-0 after:transition-transform after:ease-in-out after:duration-300 focus:outline-none"
-                              : "font-bold text-xl pb-1 relative after:absolute after:bg-gray-200 after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300 focus:outline-none"
-                          }
-                          color="foreground"
-                          href="#"
-                        >
-                          {item.label}
-                        </NextLink>
-                      </DropdownTrigger>
-                    </NavbarItem>
+                    <DropdownTrigger>
+                      <NextLink
+                        className={
+                          pathname == item.href
+                            ? "font-bold text-xl pb-1 relative after:absolute after:bg-gray-200 after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-left after:scale-x-100 hover:after:origin-bottom-right hover:after:scale-x-0 after:transition-transform after:ease-in-out after:duration-300 focus:outline-none"
+                            : "font-bold text-xl pb-1 relative after:absolute after:bg-gray-200 after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300 focus:outline-none"
+                        }
+                        color="foreground"
+                        href="#"
+                      >
+                        {item.label}
+                      </NextLink>
+                    </DropdownTrigger>
                     <DropdownMenu
                       className="w-[340px]"
                       itemClasses={{
@@ -224,7 +220,7 @@ export const Navbar = () => {
                     </DropdownMenu>
                   </Dropdown>
                 )}
-              </>
+              </NavbarItem>
             ))}
           </ul>
         </NavbarContent>

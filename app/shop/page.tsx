@@ -55,12 +55,13 @@ export default function ShopPage() {
       <Funnel fill="#3172eb" size={30} height={undefined} width={undefined} />
     ),
   };
-  const [hash, setHash] = useState(
-    typeof window !== "undefined" ? window.location.hash : ""
-  );
-  const [selected, setSelected]: any = useState(
-    typeof window !== "undefined" ? window.location.hash : ""
-  );
+  const [selected, setSelected]: any = useState("");
+
+  const setHash = () => {
+    useEffect(() => {
+      window.location.hash = selected
+    })
+  }
 
   /* if (typeof window !== "undefined" && location.hash != (null || undefined)) {
     const handleHashChange = () => {
@@ -88,7 +89,9 @@ export default function ShopPage() {
     };
   }, []);
 
-  window.location.hash=selected;
+  setHash();
+
+  
 
   return (
     <>
@@ -105,19 +108,15 @@ export default function ShopPage() {
           onSelectionChange={setSelected}
         >
           {(item) => (
-            <Tab
-              key={item.id}
-              title={
-                item.label
-              } /* href={item.href} */ /*  onClick={() => {location.href = item.href}} */
-            >
+            <Tab key={item.id} title={item.label}>
               <Card>
                 <CardBody className="w-screen">
                   {
                     {
                       "#all": (
-                        <div className=" w-full flex justify-center">
-                          <Dropdown backdrop="blur">
+                        <div className=" w-full flex justify-center items-center">
+                          Filters: &nbsp;&nbsp;&nbsp;&nbsp;
+                          <Dropdown backdrop="opaque">
                             <DropdownTrigger>
                               <Button variant="bordered">Open Menu all</Button>
                             </DropdownTrigger>
