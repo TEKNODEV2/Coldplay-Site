@@ -110,9 +110,9 @@ export default function ShopPage() {
                       "#all": (
                         <div className=" w-full flex justify-center items-center">
                           Filters: &nbsp;&nbsp;&nbsp;&nbsp;
-                          <Dropdown backdrop="opaque">
+                          <Dropdown backdrop="blur">
                             <DropdownTrigger>
-                              <Button variant="bordered">Open Menu all</Button>
+                              <Button variant="bordered"></Button>
                             </DropdownTrigger>
                             <DropdownMenu
                               variant="faded"
@@ -134,6 +134,7 @@ export default function ShopPage() {
                       ),
                       "#merchandise": (
                         <div className=" w-full flex justify-center">
+                          Filters: &nbsp;&nbsp;&nbsp;&nbsp;
                           <Dropdown backdrop="blur">
                             <DropdownTrigger>
                               <Button variant="bordered">
