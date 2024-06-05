@@ -57,11 +57,9 @@ export default function ShopPage() {
   };
   const [selected, setSelected]: any = useState("");
 
-  const setHash = () => {
-    useEffect(() => {
-      window.location.hash = selected
-    })
-  }
+  useEffect(() => {
+    window.location.hash = selected;
+  });
 
   /* if (typeof window !== "undefined" && location.hash != (null || undefined)) {
     const handleHashChange = () => {
@@ -88,10 +86,6 @@ export default function ShopPage() {
       window.removeEventListener("hashchange", handleHashChange);
     };
   }, []);
-
-  setHash();
-
-  
 
   return (
     <>
