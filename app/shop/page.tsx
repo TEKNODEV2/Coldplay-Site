@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import React from "react";
 import {
   Tabs,
   Tab,
@@ -55,9 +55,9 @@ export default function ShopPage() {
       <Funnel fill="#3172eb" size={30} height={undefined} width={undefined} />
     ),
   };
-  const [selected, setSelected]: any = useState("");
+  const [selected, setSelected]: any = React.useState("");
 
-  useEffect(() => {
+  React.useEffect(() => {
     window.location.hash = selected;
   });
 
@@ -76,7 +76,7 @@ export default function ShopPage() {
     console.log("ok");
     location.hash = selected;
   }; */
-  useEffect(() => {
+  React.useEffect(() => {
     const handleHashChange = () => {
       setSelected(window.location.hash);
     };
@@ -86,6 +86,13 @@ export default function ShopPage() {
       window.removeEventListener("hashchange", handleHashChange);
     };
   }, []);
+
+  const [selectedKeys, setSelectedKeys] = React.useState(new Set(["text"]));
+
+  const selectedValue = React.useMemo(
+    () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
+    [selectedKeys]
+  );
 
   return (
     <>
@@ -97,75 +104,71 @@ export default function ShopPage() {
       </div>
       <div className="flex w-full flex-col items-center">
         <Tabs
-          items={data.tabs}
+          aria-label="Options"
           selectedKey={selected}
           onSelectionChange={setSelected}
         >
-          {(item) => (
-            <Tab key={item.id} title={item.label}>
-              <Card>
-                <CardBody className="w-screen">
-                  {
-                    {
-                      "#all": (
-                        <div className=" w-full flex justify-center items-center">
-                          Filters: &nbsp;&nbsp;&nbsp;&nbsp;
-                          <Dropdown backdrop="blur">
-                            <DropdownTrigger>
-                              <Button variant="bordered"></Button>
-                            </DropdownTrigger>
-                            <DropdownMenu
-                              variant="faded"
-                              aria-label="Static Actions"
-                            >
-                              <DropdownItem key="new">New file</DropdownItem>
-                              <DropdownItem key="copy">Copy link</DropdownItem>
-                              <DropdownItem key="edit">Edit file</DropdownItem>
-                              <DropdownItem
-                                key="delete"
-                                className="text-danger"
-                                color="danger"
-                              >
-                                Delete file
-                              </DropdownItem>
-                            </DropdownMenu>
-                          </Dropdown>
-                        </div>
-                      ),
-                      "#merchandise": (
-                        <div className=" w-full flex justify-center">
-                          Filters: &nbsp;&nbsp;&nbsp;&nbsp;
-                          <Dropdown backdrop="blur">
-                            <DropdownTrigger>
-                              <Button variant="bordered">
-                                Open Menu merchandise
-                              </Button>
-                            </DropdownTrigger>
-                            <DropdownMenu
-                              variant="faded"
-                              aria-label="Static Actions"
-                            >
-                              <DropdownItem key="new">New file</DropdownItem>
-                              <DropdownItem key="copy">Copy link</DropdownItem>
-                              <DropdownItem key="edit">Edit file</DropdownItem>
-                              <DropdownItem
-                                key="delete"
-                                className="text-danger"
-                                color="danger"
-                              >
-                                Delete file
-                              </DropdownItem>
-                            </DropdownMenu>
-                          </Dropdown>
-                        </div>
-                      ),
-                    }[item.id]
-                  }
-                  {item.content}
-                </CardBody>
-              </Card>
-            </Tab>
-          )}
+          <Tab key="#all" title="All">
+            <Card>
+              <CardBody>
+                <div className="flex justify-center items-center">
+                  Filters: &nbsp;&nbsp;&nbsp;&nbsp;
+                  <Dropdown>
+                    <DropdownTrigger>
+                      <Button variant="bordered" className="capitalize">
+                        {selectedValue}
+                      </Button>
+                    </DropdownTrigger>
+                    <DropdownMenu
+                      aria-label="Single selection example"
+                      variant="flat"
+                      disallowEmptySelection
+                      selectionMode="single"
+                      selectedKeys={selectedKeys}
+                      // @ts-ignore
+                      onSelectionChange={setSelectedKeys}
+                    >
+                      <DropdownItem key="text">Text</DropdownItem>
+                      <DropdownItem key="number">Number</DropdownItem>
+                      <DropdownItem key="date">Date</DropdownItem>
+                      <DropdownItem key="single_date">Single Date</DropdownItem>
+                      <DropdownItem key="iteration">Iteration</DropdownItem>
+                    </DropdownMenu>
+                  </Dropdown>
+                </div>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+              </CardBody>
+            </Card>
+          </Tab>
+          <Tab key="#merchandise" title="Merchandise">
+            <Card>
+              <CardBody>
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur.
+              </CardBody>
+            </Card>
+          </Tab>
+          <Tab key="#album" title="Album">
+            <Card>
+              <CardBody>
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                qui officia deserunt mollit anim id est laborum.
+              </CardBody>
+            </Card>
+          </Tab>
+          <Tab key="#ticket" title="Ticket">
+            <Card>
+              <CardBody>
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                qui officia deserunt mollit anim id est laborum.
+              </CardBody>
+            </Card>
+          </Tab>
         </Tabs>
       </div>
     </>
