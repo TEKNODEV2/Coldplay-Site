@@ -103,7 +103,6 @@ export default function Home() {
   };
   return (
     <>
-    
       <div className="w-screen mx-auto rounded-md  h-screen overflow-hidden">
         <Vortex
           // backgroundColor="black"

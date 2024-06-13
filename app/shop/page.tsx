@@ -15,45 +15,15 @@ import {
 } from "@nextui-org/react";
 import Meteors from "@/components/ui/meteors";
 import { data } from "@/database/data";
-import {
-  ArrowRightDouble,
-  Square2StackIcon,
-  TShirt,
-  Album,
-  Ticket,
-  Funnel,
-} from "@/components/icons/icons";
+import { ChevronsRight, LayoutGrid, Shirt, Disc3, Ticket } from "lucide-react";
 
 export default function ShopPage() {
   const icons = {
-    arrowrightdouble: (
-      <ArrowRightDouble
-        fill="currentColor"
-        size={40}
-        height={undefined}
-        width={undefined}
-      />
-    ),
-    square2StackIcon: (
-      <Square2StackIcon
-        fill="#3172eb"
-        size={40}
-        height={undefined}
-        width={undefined}
-      />
-    ),
-    tshirt: (
-      <TShirt fill="#3172eb" size={40} height={undefined} width={undefined} />
-    ),
-    album: (
-      <Album fill="#3172eb" size={40} height={undefined} width={undefined} />
-    ),
-    ticket: (
-      <Ticket fill="#3172eb" size={40} height={undefined} width={undefined} />
-    ),
-    funnel: (
-      <Funnel fill="#3172eb" size={30} height={undefined} width={undefined} />
-    ),
+    arrowrightdouble: <ChevronsRight color="#3172eb" size={40} />,
+    square2StackIcon: <LayoutGrid color="#3172eb" size={40} />,
+    tshirt: <Shirt color="#3172eb" size={40} />,
+    album: <Disc3 color="#3172eb" size={40} />,
+    ticket: <Ticket color="#3172eb" size={40} />,
   };
   const [selected, setSelected]: any = React.useState("");
 

@@ -1,5 +1,5 @@
 "use client";
-import "./navbar.css"
+import "./navbar.css";
 import {
   Navbar as NextUINavbar,
   NavbarContent,
@@ -13,8 +13,6 @@ import { Button } from "@nextui-org/button";
 import { Kbd } from "@nextui-org/kbd";
 import { Link } from "@nextui-org/link";
 import { Input } from "@nextui-org/input";
-
-import { link as linkStyles } from "@nextui-org/theme";
 import {
   DropdownItem,
   DropdownTrigger,
@@ -27,13 +25,7 @@ import NextLink from "next/link";
 import clsx from "clsx";
 
 import { ThemeSwitch } from "@/components/theme-switch";
-import {
-  TwitterIcon,
-  GithubIcon,
-  DiscordIcon,
-  HeartFilledIcon,
-  SearchIcon,
-} from "@/components/icons";
+import { SearchIcon } from "@/components/icons";
 
 import { Logo } from "@/components/icons";
 import {
@@ -53,21 +45,6 @@ import {
 import { useReducer, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 
-//Icons
-import * as herosolid from "@heroicons/react/24/solid";
-import * as herooutline from "@heroicons/react/24/outline";
-import { FaUser } from "react-icons/fa";
-import { icons } from "lucide-react";
-import {
-  ArrowRightDouble,
-  Square2StackIcon,
-  TShirt,
-  Album,
-  Ticket,
-  MusicNote,
-  Share,
-  Instagram,
-} from "./icons/icons";
 /* import {
   Drawer,
   DrawerClose,
@@ -79,6 +56,10 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer"; */
 import { Drawer } from "vaul";
+
+//Icons
+import { FaUser } from "react-icons/fa";
+import { ChevronsRight, Disc3, LayoutGrid, Music, Share2, Shirt, Ticket } from "lucide-react";
 
 export const Navbar = () => {
   const pathname = usePathname();
@@ -110,41 +91,14 @@ export const Navbar = () => {
 
   const icons = {
     arrowrightdouble: (
-      <ArrowRightDouble
-        fill="currentColor"
-        size={40}
-        height={undefined}
-        width={undefined}
-      />
+      <ChevronsRight color="#3172eb" size={40}/>
     ),
-    square2StackIcon: (
-      <Square2StackIcon
-        fill="#3172eb"
-        size={40}
-        height={undefined}
-        width={undefined}
-      />
-    ),
-    tshirt: (
-      <TShirt fill="#3172eb" size={40} height={undefined} width={undefined} />
-    ),
-    album: (
-      <Album fill="#3172eb" size={40} height={undefined} width={undefined} />
-    ),
-    ticket: (
-      <Ticket fill="#3172eb" size={40} height={undefined} width={undefined} />
-    ),
-    musicNote: (
-      <MusicNote
-        fill="#3172eb"
-        size={40}
-        height={undefined}
-        width={undefined}
-      />
-    ),
-    share: (
-      <Share fill="#3172eb" size={40} height={undefined} width={undefined} />
-    ),
+    square2StackIcon: <LayoutGrid color="#3172eb" size={40} />,
+    tshirt: <Shirt color="#3172eb" size={40} />,
+    album: <Disc3 color="#3172eb" size={40} />,
+    ticket: <Ticket color="#3172eb" size={40} />,
+    musicNote: <Music color="#3172eb" size={40} />,
+    share: <Share2 color="#3172eb" size={40} />,
   };
 
   const [isShare, setIsShare] = useState(false);
@@ -232,7 +186,7 @@ export const Navbar = () => {
                       ></DropdownItem>
                       <DropdownItem
                         startContent={icons.ticket}
-                        title="Tutti gli eventi"
+                        title="Ticket"
                         description="vedi biglietti acquistabili"
                         endContent={icons.arrowrightdouble}
                         href="/shop#ticket"
