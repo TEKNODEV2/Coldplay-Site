@@ -97,8 +97,6 @@ export const Navbar = () => {
     tshirt: <Shirt color="#3172eb" size={40} />,
     album: <Disc3 color="#3172eb" size={40} />,
     ticket: <Ticket color="#3172eb" size={40} />,
-    musicNote: <Music color="#3172eb" size={40} />,
-    share: <Share2 color="#3172eb" size={40} />,
   };
 
   const [isShare, setIsShare] = useState(false);
@@ -442,8 +440,6 @@ export const Navbar = () => {
               <Share
                 fill="#3172eb"
                 size={40}
-                height={undefined}
-                width={undefined}
               />
             </Button>
           </PopoverTrigger>
@@ -530,8 +526,6 @@ export const Navbar = () => {
               className="mr-1"
               fill="#3172eb"
               size={25}
-              height={undefined}
-              width={undefined}
             />
           </Button>
         </Drawer.Trigger>
