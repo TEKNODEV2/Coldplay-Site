@@ -437,9 +437,9 @@ export const Navbar = () => {
         >
           <PopoverTrigger>
             <Button radius="md" isIconOnly className="w-14 h-14">
-              <Share
-                fill="#3172eb"
-                size={40}
+              <Share2
+                color="#3172eb"
+                size={30}
               />
             </Button>
           </PopoverTrigger>
@@ -522,10 +522,10 @@ export const Navbar = () => {
       <Drawer.Root direction="right" shouldScaleBackground noBodyStyles>
         <Drawer.Trigger asChild className="fixed bottom-5 right-5 z-50">
           <Button radius="md" isIconOnly className="w-14 h-14">
-            <MusicNote
+            <Music
               className="mr-1"
-              fill="#3172eb"
-              size={25}
+              color="#3172eb"
+              size={30}
             />
           </Button>
         </Drawer.Trigger>

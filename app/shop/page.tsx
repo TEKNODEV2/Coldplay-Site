@@ -78,7 +78,15 @@ export default function ShopPage() {
           selectedKey={selected}
           onSelectionChange={setSelected}
         >
-          <Tab key="#all" title="All">
+          <Tab
+            key="#all"
+            title={
+              <div className="flex items-center space-x-2">
+                <LayoutGrid size={20} />
+                <span>All</span>
+              </div>
+            }
+          >
             <Card>
               <CardBody>
                 <div className="flex justify-center items-center">
@@ -113,7 +121,15 @@ export default function ShopPage() {
               </CardBody>
             </Card>
           </Tab>
-          <Tab key="#merchandise" title="Merchandise">
+          <Tab
+            key="#merchandise"
+            title={
+              <div className="flex items-center space-x-2">
+                <Shirt size={20} />
+                <span>Merchandise</span>
+              </div>
+            }
+          >
             <Card>
               <CardBody>
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -123,7 +139,15 @@ export default function ShopPage() {
               </CardBody>
             </Card>
           </Tab>
-          <Tab key="#album" title="Album">
+          <Tab
+            key="#album"
+            title={
+              <div className="flex items-center space-x-2">
+                <Disc3 size={20} />
+                <span>Album</span>
+              </div>
+            }
+          >
             <Card>
               <CardBody>
                 Excepteur sint occaecat cupidatat non proident, sunt in culpa
@@ -131,7 +155,15 @@ export default function ShopPage() {
               </CardBody>
             </Card>
           </Tab>
-          <Tab key="#ticket" title="Ticket">
+          <Tab
+            key="#ticket"
+            title={
+              <div className="flex items-center space-x-2">
+                <Ticket size={20} />
+                <span>Ticket</span>
+              </div>
+            }
+          >
             <Card>
               <CardBody>
                 Excepteur sint occaecat cupidatat non proident, sunt in culpa
