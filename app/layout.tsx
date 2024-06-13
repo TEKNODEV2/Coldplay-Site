@@ -7,6 +7,7 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Link } from "@nextui-org/link";
 import clsx from "clsx";
+import "./layout.css"
 
 export const metadata: Metadata = {
   title: {
@@ -33,7 +34,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="it">
-      <head />
+      <head/>
       <body
         className={clsx(
           "min-h-screen bg-background font-sans antialiased overflow-x-hidden ",
@@ -57,3 +58,4 @@ export default function RootLayout({
     </html>
   );
 }
+
